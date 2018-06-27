@@ -1,0 +1,27 @@
+{
+  "name": "talk-redux-immutable",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "flow": "flow",
+    "flow-typed": "flow-typed"
+  },
+  "dependencies": {
+    "immutable": "^4.0.0-rc.9",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-immutable": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.75.0",
+    "flow-typed": "^2.4.0"
+  }
+}
