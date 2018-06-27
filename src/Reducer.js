@@ -1,4 +1,6 @@
-const initialState = {
+import { fromJS } from './MyImmutable';
+
+const initialState = fromJS({
 	diagram: {
 		title: "My Diagram",
 		layout: {
@@ -17,7 +19,7 @@ const initialState = {
 		other: 'Lots of other stuff here',
 	},
 	other: 'Lots of other stuff here',
-}
+});
 
 export function reducer(state = initialState, action) {
 	switch(action.type) {
