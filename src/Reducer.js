@@ -1,4 +1,4 @@
-import { fromJS } from './MyImmutable';
+import { fromJS } from 'immutable';
 
 const initialState = fromJS({
 	diagram: {
