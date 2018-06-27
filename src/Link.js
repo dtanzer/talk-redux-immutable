@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 export class Link extends React.PureComponent {
 	render() {
-		const fromX = this.props.edge.x;
-		const fromY = this.props.edge.y;
+		const fromX = this.props.edge.get('x');
+		const fromY = this.props.edge.get('y');
 
-		const toX = this.props.square.x + this.props.edge.squareX;
-		const toY = this.props.square.y + this.props.edge.squareY;
+		const toX = this.props.square.get('x') + this.props.edge.get('squareX');
+		const toY = this.props.square.get('y') + this.props.edge.get('squareY');
 
 		return (
 			<path d={'M '+fromX+' '+fromY+' L '+toX+' '+toY+' z'} className="link" />
@@ -17,8 +17,8 @@ export class Link extends React.PureComponent {
 
 function mapStateToProps(state, ownProps) {
 	return {
-		square: state.diagram.layout.nodes[ownProps.toSquare],
-		edge:   state.diagram.layout.edges[ownProps.fromEdge],
+		square: state.getIn(['diagram', 'layout', 'nodes', ownProps.toSquare]),
+		edge:   state.getIn(['diagram', 'layout', 'edges', ownProps.fromEdge]),
 	}
 }
 

@@ -24,21 +24,9 @@ const initialState = fromJS({
 export function reducer(state = initialState, action) {
 	switch(action.type) {
 		case 'SQUARE_MOVED':
-			const newNodes = [...state.diagram.layout.nodes];
-			newNodes[action.id] = {
-				x: state.diagram.layout.nodes[action.id].x + action.dx,
-				y: state.diagram.layout.nodes[action.id].y + action.dy,
-			}
-			return {
-				...state,
-				diagram: {
-					...state.diagram,
-					layout: {
-						...state.diagram.layout,
-						nodes: newNodes,
-					},
-				},
-			}
+			return state
+				.updateIn(['diagram', 'layout', 'nodes', action.id, 'x'], x => x+action.dx)
+				.updateIn(['diagram', 'layout', 'nodes', action.id, 'y'], y => y+action.dy);
 		default:
 			return state;
 	}

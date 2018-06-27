@@ -45,8 +45,8 @@ export class Square extends React.PureComponent {
 
 function mapStateToProps(state, ownProps) {
 	return {
-		x: state.diagram.layout.nodes[ownProps.id].x,
-		y: state.diagram.layout.nodes[ownProps.id].y,
+		x: state.getIn(['diagram', 'layout', 'nodes', ownProps.id, 'x']),
+		y: state.getIn(['diagram', 'layout', 'nodes', ownProps.id, 'y']),
 	};
 }
 
