@@ -22,9 +22,21 @@ const initialState = {
 export function reducer(state = initialState, action) {
 	switch(action.type) {
 		case 'SQUARE_MOVED':
-			state.diagram.layout.nodes[action.id].x = state.diagram.layout.nodes[action.id].x + action.dx;
-			state.diagram.layout.nodes[action.id].y = state.diagram.layout.nodes[action.id].y + action.dy;
-			return state;
+			const newNodes = [...state.diagram.layout.nodes];
+			newNodes[action.id] = {
+				x: state.diagram.layout.nodes[action.id].x + action.dx,
+				y: state.diagram.layout.nodes[action.id].y + action.dy,
+			}
+			return {
+				...state,
+				diagram: {
+					...state.diagram,
+					layout: {
+						...state.diagram.layout,
+						nodes: newNodes,
+					},
+				},
+			}
 		default:
 			return state;
 	}
